@@ -1,0 +1,76 @@
+{
+    "beaker": "2",
+    "evaluators": [
+        {
+            "name": "Html",
+            "plugin": "Html",
+            "shellID": null
+        },
+        {
+            "name": "Latex",
+            "plugin": "Latex",
+            "shellID": null
+        },
+        {
+            "name": "IPython",
+            "plugin": "IPython",
+            "shellID": "EAC8BED5F0304D8D8D7DE59FCFD54367",
+            "imports": "",
+            "supplementalClassPath": ""
+        },
+        {
+            "name": "JavaScript",
+            "plugin": "JavaScript",
+            "shellID": null,
+            "jsSetting2": "",
+            "jsSetting1": ""
+        },
+        {
+            "name": "R",
+            "plugin": "R",
+            "shellID": ""
+        },
+        {
+            "name": "Julia",
+            "plugin": "Julia",
+            "shellID": "6F0BD89CEE864CBF80CAD653B28C9F31",
+            "imports": "",
+            "supplementalClassPath": ""
+        }
+    ],
+    "cells": [
+        {
+            "id": "section001",
+            "type": "section",
+            "level": 1,
+            "title": "Chapter 2",
+            "collapsed": false
+        },
+        {
+            "id": "code001",
+            "type": "code",
+            "evaluator": "IPython",
+            "input": {
+                "body": "import sympy\nfrom sympy import Piecewise, fourier_transform, mpmath\nfrom sympy.abc import A, T, t, k, x\np = Piecewise((A, (t >= -T/2) & (t <= T/2)), (0, True))\nF_p = fourier_transform(p, t, k)\nmpmath.plot(F_p.subs([(A, 1), (T, 1)])) # broken: https://github.com/sympy/sympy/issues/7726"
+            },
+            "output": {
+                "selectedType": "Hidden",
+                "outputArrived": true,
+                "elapsedTime": 668
+            }
+        },
+        {
+            "id": "code4G4KVM",
+            "type": "code",
+            "evaluator": "Julia",
+            "input": {
+                "body": "using Gadfly\nT = 1\nA = 1\np(t) = t >= -T/2 && t <= T/2 ? A : 0\nplot(p, -5, 5)"
+            },
+            "output": {
+                "selectedType": "Hidden",
+                "outputArrived": true,
+                "elapsedTime": 145
+            }
+        }
+    ]
+}
